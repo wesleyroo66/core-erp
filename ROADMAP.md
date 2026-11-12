@@ -1,7 +1,7 @@
 # ROADMAP - CORE ERP
 
-- [ ] **Fase 1: Infraestrutura** (Configuração Docker, PostgreSQL, Odoo base e diretórios)
-- [ ] **Fase 2: Autenticação** (Segurança, regras de acesso, multiempresa e usuários)
+- [x] **Fase 1: Infraestrutura** (Configuração Docker, PostgreSQL, Odoo base e diretórios)
+- [ ] **Fase 2: Autenticação e Multiempresa** (Segurança, regras de acesso, multiempresa e módulo `core_base`)
 - [ ] **Fase 3: CRM** (Gestão de leads, oportunidades e funil)
 - [ ] **Fase 4: Vendas** (Cotações, pedidos de venda, tabela de preços)
 - [ ] **Fase 5: Compras** (Fornecedores, cotações de compra e pedidos)
