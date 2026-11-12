@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Extensão da View Form do CRM Lead para exibir os campos do CORE ERP -->
+        <record id="view_crm_lead_form_inherit_core" model="ir.ui.view">
+            <field name="name">crm.lead.form.inherit.core</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <!-- Insere os campos customizados dentro da aba de Oportunidade -->
+                <xpath expr="//field[@name='user_id']" position="after">
+                    <field name="mrr_estimate"/>
+                    <field name="business_segment"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
