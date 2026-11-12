@@ -19,14 +19,15 @@ O **CORE ERP** é um sistema ERP SaaS profissional, modular, escalável e multie
 - **Módulos customizados:** Armazenados no diretório de addons customizados (`custom_addons/`).
 
 ## 4. Módulos Existentes
-- `custom_addons/`: Estrutura pronta para receber módulos customizados.
+- `custom_addons/core_base`: Módulo base de segurança, grupos de acesso (`Usuário Padrão` e `Administrador`) e regras de segregação multiempresa. **Status: Instalado e Ativo.**
 
 ## 5. Decisões Técnicas Tomadas
 - **Adoção do Odoo Community 17.0:** Permite total controle sobre a base de código sem custos de licenciamento por usuário da versão Enterprise.
 - **Abordagem 100% Dockerizada:** Garante consistência do ambiente entre o desenvolvimento (Windows 11) e a produção (OCI Linux).
-- **Mapeamento de Volume `./config/odoo.conf`:** Garante o fornecimento das diretivas corretas do Odoo (`[options]`) e isolamento da master password.
+- **Mapeamento de Volume `./config/odoo.conf`:** Garante o fornecimento das diretivas corretas do Odoo (`[options]`) e alinhamento da Master Password (`admin_passwd`).
+- **Remoção de atributos não padrão em XMLs:** Manutenção de tags `<data>` estritamente padrão para evitar exceções do validador `lxml`.
 
 ## 6. Pendências e Próximos Passos
-- Inicializar a **Fase 2: Autenticação, Multiempresa e Segurança**.
-- Criar o primeiro módulo customizado base (`custom_addons/core_base`).
-- Definir regras de controle de acesso (ACLs) e isolamento rigoroso entre empresas (multi-company record rules).
+- Inicializar a **Fase 3: CRM (Gestão de Leads e Oportunidades)**.
+- Criar o módulo customizado `custom_addons/core_crm`.
+- Configurar views de funil de vendas (Kanban), estágios de negociação e vínculo com o `core_base`.

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Categoria de Segurança do CORE ERP -->
+        <record id="module_category_core_erp" model="ir.module.category">
+            <field name="name">CORE ERP</field>
+            <field name="description">Gerenciamento de permissões do sistema CORE ERP</field>
+            <field name="sequence">10</field>
+        </record>
+
+        <!-- Grupo de Acesso: Usuário Padrão -->
+        <record id="group_core_erp_user" model="res.groups">
+            <field name="name">Usuário Padrão</field>
+            <field name="category_id" ref="module_category_core_erp"/>
+            <field name="users" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <!-- Grupo de Acesso: Administrador do ERP -->
+        <record id="group_core_erp_manager" model="res.groups">
+            <field name="name">Administrador</field>
+            <field name="category_id" ref="module_category_core_erp"/>
+            <field name="implied_ids" eval="[(4, ref('group_core_erp_user'))]"/>
+        </record>
+
+        <!-- Regra de Registro Multiempresa (Multi-Company Record Rule) -->
+        <record id="core_base_company_rule" model="ir.rule">
+            <field name="name">Segregação Multiempresa CORE Base</field>
+            <field name="model_id" ref="base.model_res_company"/>
+            <field name="domain_force">['|', ('id', 'in', user.company_ids.ids), ('id', '=', False)]</field>
+            <field name="global" eval="True"/>
+        </record>
+    </data>
+</odoo>
