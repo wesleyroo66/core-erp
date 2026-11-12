@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_core_sale_order_user,sale.order.user,sale.model_sale_order,core_base.group_core_erp_user,1,1,1,0
+access_core_sale_order_manager,sale.order.manager,sale.model_sale_order,core_base.group_core_erp_manager,1,1,1,1

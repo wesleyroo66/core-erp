@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Extensão da View Form de Pedidos de Venda / Cotações -->
+        <record id="view_order_form_inherit_core_sale" model="ir.ui.view">
+            <field name="name">sale.order.form.inherit.core.sale</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <!-- Insere os campos SaaS logo após a validade da cotação -->
+                <xpath expr="//field[@name='payment_term_id']" position="after">
+                    <field name="is_saas_subscription"/>
+                    <field name="billing_cycle" invisible="not is_saas_subscription"/>
+                    <field name="business_segment"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
